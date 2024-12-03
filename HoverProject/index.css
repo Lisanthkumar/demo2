@@ -1,0 +1,131 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-style: italic;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+body,html{
+    height: 100%;
+    width: 100%;
+}
+
+.slider-container{
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+
+}
+.slider{
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    height: 100%;
+}
+.slide{
+    position: relative;
+    flex: 0 0 100%;
+    height: 100%;
+}
+.image-container{
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    
+}
+.image-container img{
+    width: 90%;
+    height: 90%;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+}
+.image-container img:hover{
+    transform: scale(1.1);
+}
+.overlay{
+    position: absolute;
+    top: 0;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.557);
+    /* background: linear-gradient(red,blue); */
+    /* background: conic-gradient( 
+         rgba(0, 0, 0, 0.4) 79%,
+         rgba(209, 199, 1, 0.35)0% ); */
+         
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.details{
+    color: white;
+    text-align: center;
+    padding: 20px;
+    max-width: 90%;
+
+}
+.overlay::before{
+    content: '';
+    position: absolute;
+        top: 0;
+        left: 100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient( rgba(209, 199, 1, 0.839), rgba(150, 150, 150, 0.423)); 
+        clip-path: polygon(100% 0%, 0% 30%, 0% 0%, 0% 10%); 
+        /* transition: clip-path 5s ease-in-out;  */
+        z-index: 0;
+}
+.overlay:hover:before{
+    left: 0%;
+}
+.details h1{
+    margin-bottom: 20%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-transform: uppercase;
+    color: rgb(255, 255, 255);
+}
+.details p{
+    /* padding-left: 60%; */
+    font-size: 20px;
+    margin-top: 30%;
+}
+.details a{
+    text-decoration: none;
+    font-size: 25px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-style: italic;
+    color:  rgb(209, 199, 1)
+    
+}
+.overlay:hover{
+    opacity: 1;
+}
+
+.forward,.backward{
+    position: absolute;
+    top: 50%;
+    background-color: black;
+    color: wheat;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 24px;
+    z-index: 10;
+    transform: translateY(-50%);
+}
+.forward{
+    left: 10px;
+}
+.backward{
+    right: 10px;
+}
+.forward:hover,.backward:hover{
+    background-color: rgba(0, 0, 0, 0.7);
+}
